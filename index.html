@@ -2,206 +2,295 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Expense Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footwear</title>
 <style>
-    body{
-        font-family: Arial, sans-serif;
-        padding:20px;
-        background-color:lightgray;
-    }
-    .container{
-        max-width: 700px;
-        margin:auto;
-    }
-    .box{
-        background:linear-gradient(to right,purple,indigo);
-        border:2px solid #333;
-        border-radius:10px;
-        padding:15px;
-        margin-bottom:20px;
-    }
-    .box1{
-        background:linear-gradient(to right,lavender,pink);
-        border:2px solid #333;
-        border-radius:10px;
-        padding:15px;
-        margin-bottom:20px;
-    }
-    .title{
-        text-align:center;
-        font-size:30px;
-        font-weight:bold;
-        color:white;
-    }
-    .subtitle{
-        text-align:center;
-        color:gold;
-        margin-top:5px;
-        font-size:25px;
-    }
-    .cards{
-        display:flex;
-        gap:10px;
-        justify-content:space-between;
-        flex-wrap:wrap;
-    }
-    .card{
-        flex:1;
-        min-width:150px;
-        border:2px solid #333;
-        border-radius:10px;
-        padding:8px;
-        text-align:center;
-        background:linear-gradient(to right,lightgreen,lightyellow);
-        margin-bottom:2px;
-        font-size:18px;
-    }
-    .card:hover{
-        transform:scale(1.02);
-        background:linear-gradient(to right,red,orange);
-        color:white;
-        box-shadow: 5px 5px 10px black;
-        transition:0.2s;
-    }
-    .innerbox{
-        font-weight:bold;
-        margin-bottom:10px;
-        color:black;
-        font-size:20px;
-    }
-    .item1,.item2,.item3,.item4{
-        display:flex;
-        justify-content:space-between;
-        border-bottom:1px solid #ddd;
-        background-color:skyblue;
-        border-radius:9px;
-        padding:8px;
-        margin:10px;
-    }
-    .item1:hover,.item2:hover,.item3:hover,.item4:hover{
-         color:white;
-         transform: scale(1.05);
-         transition: 0.1s;
-         background:linear-gradient(to right,red,orange);
-         font-size:18px;
-         font-weight:bold;
-
-    }
-    .expense1,.expense2,.expense3,.expense4,.expense5,.expense6{
-        display:flex;
-        justify-content:space-between;
-        border-bottom:1px solid #ddd;
-        background-color:darkorchid;
-        border-radius:9px;
-        padding:8px;
-        margin:8px;
-        color:white;
-    }
-    .transaction1 , .transaction2,.transaction3,.transaction4,.transaction5,.transaction6{
-        border:2px solid #333;
-        border-radius:10px;
-        padding:5px;
-        margin-bottom:6px;
-        background:linear-gradient(to right,lavender,white);
-        color:black;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    background: black;
+    color:white;
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+.navbar ul li {
+    color:white;
+    margin-left: 25px;
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+.navbar ul li a:hover {
+    color: yellow;
+}
+#categories{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    padding-top:8px;
+    padding-bottom:5px;
+    background:white;
+}
+.category{
+    text-align:center;
+}
+.category img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.category img:hover{
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transform:scale(1.1);
+    transition:0.1s;
+}
+.banner img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+}
+#sales{
+    padding:20px;
+}
+#sales table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+#sales th,
+#sales td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+#products{
+    padding:20px;
+}
+.product-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+.product:hover{
+    box-shadow: 0 8px 20px rgba(0,0,0,1);
+}
+.product{
+    width:220px;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+}
+.product img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.product button{
+    background:black;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+}
+.product button:hover{
+    background:blue;
+    transition:0s;
+}
+#payment{
+    background:#e8f6ff;
+    padding:20px;
+    text-align:center;
+}
+.checkout button{
+    background:#0066cc;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.checkout button:hover{
+    background: green;
+    transition:0.1s;
+}
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+/*mobile view*/
+@media(max-width:768px){
+    .navbar{
+    display: flex;
+   flex-direction: column;
+}
+   .navbar ul{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    gap:5px;
+    padding-right:25%;
    }
-    .items{
-        font-size:17px;
-        color:black;
-    }
-    .amount{
-        font-weight:bold;
-    }
+    #sales table{
+    display: grid;
+    grid-template-columns:repeat(4 ,1fr);
+  }
+  #sales th,
+#sales td{
+    border:1px solid #ccc;
+    text-align:center;
+    padding: 5px;
+    word-wrap: break-word;
+}
+}
 </style>
 </head>
 <body>
-<div class="container">
-<!--Header Section-->
-    <div class="box">
-        <div class="title">My Expense Tracker</div>
-        <div class="subtitle">Track your monthly spending</div>
+    <header>
+        <nav class="navbar">
+        <div>
+            <h2>Footwear</h2>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#sales">Sales</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+<div id="categories">
+    <div class="category">
+        <img src="https://images.pexels.com/photos/1027130/pexels-photo-1027130.jpeg" alt="sports shoes">
+        <h4>Sports Shoes</h4>
     </div>
-<!--Summary cards-->
-    <div class="cards">
-        <div class="card">
-            <div>Total Spent</div>
-            <h3>&#8377;5,400</h3>
-        </div>
-        <div class="card">
-            <div>Highest Category</div>
-            <h3>Food</h3>
-        </div>
-        <div class="card">
-            <div>Current Month</div>
-            <h3>May 2026</h3>
-        </div>
-    </div><br>
-<!--Categories-->
-    <div class="box1">
-        <div class="innerbox">Expense Categories</div>
-        <div class="item1">
-            <span>Food</span>
-            <span>&#8377;1,600</span>
-        </div>
-        <div class="item2">
-            <span>Transport</span>
-            <span>&#8377;1,300</span>
-        </div>
-        <div class="item3">
-            <span>Shopping</span>
-            <span>&#8377;1,500</span>
-        </div>
-        <div class="item4">
-            <span>Entertainment</span>
-            <span>&#8377;1,000</span>
-        </div>
+    <div class="category">
+        <img src="https://images.pexels.com/photos/31064307/pexels-photo-31064307.jpeg" alt="sneakers">
+        <h4>Sneakers</h4>
     </div>
-<!-- Transactions -->
-    <div class="box1">
-        <div class="innerbox">Recent Transactions</div>
-        <div class="transaction1">
-            <div class="items">Burger</div>
-            <div class="expense1">
-                <span>31-May-2026</span>
-                <span class="amount">&#8377;600</span>
-            </div>
-        </div>
-        <div class="transaction2">
-            <div class="items">Bus Pass</div>
-            <div class="expense2">
-                <span>29-May-2026</span>
-                <span class="amount">&#8377;800</span>
-            </div>
-        </div>
-        <div class="transaction3">
-            <div class="items">Pizza and cool drinks</div>
-            <div class="expense3">
-                <span>24-May-2026</span>
-                <span class="amount">&#8377;1000</span>
-            </div>
-        </div>
-        <div class="transaction4">
-            <div class="items">T-Shirt</div>
-            <div class="expense4">
-                <span>21-May-2026</span>
-                <span class="amount">&#8377;1500</span>
-            </div>
-        </div>
-         <div class="transaction5">
-            <div class="items">Train ticket</div>
-            <div class="expense5">
-                <span>15-May-2026</span>
-                <span class="amount">&#8377;500</span>
-            </div>
-        </div>
-         <div class="transaction6">
-            <div class="items">Netflix account</div>
-            <div class="expense6">
-                <span>13-May-2026</span>
-                <span class="amount">&#8377;1000</span>
-            </div>
-        </div>
+    <div class="category">
+        <img src="https://images.pexels.com/photos/186035/pexels-photo-186035.jpeg" alt="formal shoes">
+        <h4>Formal Shoes</h4>
+    </div>
+    <div class="category">
+        <img src="https://images.pexels.com/photos/2119220/pexels-photo-2119220.jpeg" alt="boots">
+        <h4>Boots</h4>
+    </div>
+    <div class="category">
+        <img src="https://images.pexels.com/photos/27174537/pexels-photo-27174537.jpeg" alt="sandals">
+        <h4>Sandals</h4>
+    </div>
+    <div class="category">
+        <img src="https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg" alt="Casual shoes">
+        <h4>Casual Shoes</h4>
+    </div>
+     <div class="category">
+        <img src="https://images.pexels.com/photos/37305535/pexels-photo-37305535.jpeg" alt="slippers">
+        <h4>Slippers</h4>
+    </div>
+    <div class="category">
+        <img src="https://images.pexels.com/photos/31650335/pexels-photo-31650335.jpeg" alt="Hiking Boots">
+        <h4>Hiking Boots</h4>
     </div>
 </div>
+<section class="banner">
+    <img src="https://images.pexels.com/photos/28144050/pexels-photo-28144050.jpeg" alt="banner">
+</section>
+<section id="sales">
+    <h2>Upcoming Sales</h2>
+    <table>
+        <tr>
+            <th>Sale Event</th>
+            <th>Discount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        <tr>
+            <td>Summer Sale</td>
+            <td>30%</td>
+            <td>10 June</td>
+            <td>15 June</td>
+        </tr>
+        <tr>
+            <td>Monsoon Sale</td>
+            <td>40%</td>
+            <td>01 July</td>
+            <td>08 July</td>
+        </tr>
+        <tr>
+            <td>Festive Sale</td>
+            <td>50%</td>
+            <td>20 October</td>
+            <td>30 October</td>
+        </tr>
+    </table>
+</section>
+<section id="products">
+    <h2>Trending Footwear Collection</h2>
+    <div class="product-list">
+        <div class="product">
+            <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="running shoes">
+            <h3>Running Shoes</h3>
+            <p>₹1999</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/11324516/pexels-photo-11324516.jpeg" alt="white sneakers">
+            <h3>White Sneakers</h3>
+            <p>₹2499</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/31844638/pexels-photo-31844638.jpeg" alt="formal shoes">
+            <h3>Formal Shoes</h3>
+            <p>₹2999</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/9241620/pexels-photo-9241620.jpeg" alt="leather boots">
+            <h3>Leather Boots</h3>
+            <p>₹3499</p>
+            <button>Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="https://images.pexels.com/photos/14706995/pexels-photo-14706995.jpeg" alt="flip flops">
+            <h3>Flip flops</h3>
+            <p>₹1599</p>
+            <button>Buy Now</button>
+        </div>
+    </div>
+</section>
+<section id="payment">
+    <h2>Payment Methods</h2>
+    <p>UPI | Credit Card | Debit Card | Net Banking</p>
+    <div class="checkout">
+        <button>Place Order</button>
+    </div>
+</section><br>
+<footer>
+    <section id="contact">
+    <h2>Contact</h2><hr>
+    <p>Email : footware@gmail.com</p>
+</section>
+</footer>
 </body>
 </html>
